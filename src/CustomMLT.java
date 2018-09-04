@@ -38,24 +38,34 @@ class CustomMLT {
         if (a == 0 || b == 0) {
             return 0;
         }
-        int result = 0;
+
         boolean resultWillBeNegative = (a < 0) ^ (b < 0);
-        if (a < 0) {
-            a = -a;
-        }
-        if (b < 0) {
-            b = -b;
-        }
+
+        a = fastAbs(a);
+        b = fastAbs(b);
+
         if (a > b) {
             int temp = a;
             a = b;
             b = temp;
         }
 
-        for (int i = 0; i < a; i++) {
+        int result = b;
+        for (int i = 1; i < a; i++) {
             result += b;
         }
+
         return resultWillBeNegative ? -result : result;
+    }
+
+    /**
+     * Быстрый аналог Math.abs, работающий только с int
+     *
+     * @param a Целое число, абсолютное значение которого нужно найти
+     * @return Абсолютное значение от числа a
+     */
+    private static int fastAbs(int a) {
+        return a < 0 ? -a : a;
     }
 
     /**
