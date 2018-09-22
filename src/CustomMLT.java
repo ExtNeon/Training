@@ -33,7 +33,7 @@ class CustomMLT {
      * @param b Второе число
      * @return Произведение числа a и числа b
      */
-    private static int multipleWithoutOperator(int a, int b) {
+    public static int multipleWithoutOperator(int a, int b) {
         //Не теряем время, если у нас один из операндов == 0
         if (a == 0 || b == 0) {
             return 0;
